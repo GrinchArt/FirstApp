@@ -1,0 +1,9 @@
+<div class="modal" *ngIf="display">
+    <div class="modal-content">
+      <span class="close" (click)="onClose()">&times;</span>
+      <h2>Add New List</h2>
+      <input type="text" [(ngModel)]="listName" placeholder="Enter list name">
+      <button (click)="createList()">Create</button>
+      <button (click)="onClose()">Cancel</button>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<div class="list">
+  <div class="list-header">
+    <h3>{{ list.name }} ({{ cards.length }})</h3>
+    <div class="dropdown">
+      <button class="dropbtn">☰</button>
+      <div class="dropdown-content">
+        <a href="#" (click)="editListComponent.openModal(); $event.preventDefault()">Edit</a>
+        <a href="#" (click)="removeList(); $event.preventDefault()">Delete</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="add-card-button">
+    <button (click)="addCard()">Add new card</button>
+    <app-add-card #addCardComponent (cardAdded)="onCardAdded($event)"></app-add-card>
+  </div>
+
+  <div class="card-container" *ngIf="cards.length > 0" >
+    <app-card *ngFor="let card of cards" [card]="card" 
+          (requestEdit)="openEditCardModal(card)" 
+          (cardChanged)="onCardChanged()" 
+          (requestInfo)="openInfoModal(card)">
+</app-card>
+  </div>
+  <app-edit-card *ngFor="let card of cards" [card]="card" (cardUpdated)="onCardUpdated($event)"></app-edit-card>
+  <app-edit-list #editListComponent [list]="list" (update)="handleUpdate($event)"></app-edit-list>
+  <app-carddescription [card]="selectedCard" [activityLogs]="selectedCardLogs" *ngIf="selectedCard"></app-carddescription>
+</div>

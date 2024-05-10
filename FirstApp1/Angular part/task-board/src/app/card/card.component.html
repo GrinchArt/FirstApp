@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-menu">
+    <button type="button" class="menu-button">⋮</button>
+    <div class="dropdown-content">
+      <button type="button" (click)="triggerEditCard()">Edit</button>
+      <button type="button" (click)="deleteCard(card.id)">Delete</button>
+      <button type="button" (click)="triggerInfo()">Info</button>
+    </div>
+  </div>
+  <h4>{{ card.name }}</h4>
+  <p>{{ card.description }}</p>
+  <span>{{ card.dueDate | date }}</span>
+  <select (change)="changeList($event)">
+    <option *ngFor="let list of lists" [value]="list.id" [selected]="list.id === card.listId">{{ list.name }}</option>
+  </select>
+</div>

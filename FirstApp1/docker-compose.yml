@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./FirstApp1
+      dockerfile: FirstApp/Dockerfile
+    ports:
+      - "5198:5198"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5198
+
+  frontend:
+    build:
+      context: ./FirstApp1
+      dockerfile: Angular part/Dockerfile
+    ports:
+      - "80:80"
+
+networks:
+  default:
+    driver: bridge

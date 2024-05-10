@@ -1,0 +1,36 @@
+<div class="modal" *ngIf="showEditModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Edit Card</h2>
+      <form (submit)="submitEdit($event); $event.preventDefault()">
+        <div class="input-group">
+          <label for="list">List</label>
+          <select [(ngModel)]="card.listId" name="list" id="list" required>
+            <option *ngFor="let list of lists" [value]="list.id">{{ list.name }}</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="card-name">Card Name</label>
+          <input type="text" [(ngModel)]="card.name" name="name" id="card-name" placeholder="Enter card name" required>
+        </div>
+        <div class="input-group">
+          <label for="description">Description</label>
+          <textarea [(ngModel)]="card.description" name="description" id="description" placeholder="Write some information..." rows="4"></textarea>
+        </div>
+        <div class="input-group">
+          <label for="due-date">Due Date</label>
+          <input type="date" [(ngModel)]="card.dueDate" name="dueDate" id="due-date">
+        </div>
+        <div class="input-group">
+          <label for="priority">Priority</label>
+          <select [(ngModel)]="card.priority" name="priority" id="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+        <button type="submit" class="save-btn">Save Changes</button>
+      </form>
+    </div>
+  </div>

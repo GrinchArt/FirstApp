@@ -1,0 +1,14 @@
+<div *ngIf="show">
+    <div *ngIf="activities.length > 0; else noRecords">
+      <button (click)="closeLog()">Close</button>
+      <button *ngIf="moreAvailable" (click)="loadMore()">Load More</button>
+      <div *ngFor="let log of activities">
+        <p>{{ log.timestamp | date:'medium' }} - {{ log.actionName }}: {{ log.details }}</p>
+      </div>
+     
+    </div>
+    <ng-template #noRecords>
+      <p>No activity records found.</p>
+    </ng-template>
+    
+  </div>

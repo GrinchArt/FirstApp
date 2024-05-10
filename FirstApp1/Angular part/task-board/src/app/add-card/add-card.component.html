@@ -1,0 +1,25 @@
+<div class="modal" *ngIf="show">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Add New Card</h2>
+    <form (submit)="addCard(); $event.preventDefault()">
+      <div class="input-group">
+        <input type="text" [(ngModel)]="card.name" name="name" placeholder="Card Name" required>
+      </div>
+      <div class="input-group">
+        <input type="text" [(ngModel)]="card.description" name="description" placeholder="Description">
+      </div>
+      <div class="input-group">
+        <input type="date" [(ngModel)]="card.dueDate" name="dueDate">
+      </div>
+      <div class="input-group">
+        <select [(ngModel)]="card.priority" name="priority">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-button">Add Card</button>
+    </form>
+  </div>
+</div>

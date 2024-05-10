@@ -1,0 +1,11 @@
+<div class="board-container">
+  <div class="board" *ngFor="let list of lists">
+    <app-list [list]="list" (listRemoved)="handleListRemoval($event)"></app-list>
+  </div>
+  <div class="add-list-button">
+    <button (click)="addNewList()">Add new list</button>
+    <button class="activity-log-button" (click)="toggleActivityLog()">View Activity Log</button>
+    <app-add-list (create)="addList($event)" #modal></app-add-list>
+  </div>
+</div>
+<app-activity-log *ngIf="showActivityLog" [show]="showActivityLog"></app-activity-log>

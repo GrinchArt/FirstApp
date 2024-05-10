@@ -1,0 +1,77 @@
+.list {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+.list-header {
+  background-color: #777777; 
+  color: white; 
+  padding: 15px 20px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 8px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+  top: 40px; 
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #515251; 
+}
+
+.add-card-button button {
+  background-color: #c9c9c9; 
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15); 
+  margin-top: 10px;
+}
+
+.add-card-button button:hover {
+  background-color: #a1a0a0; 
+}
+
+.card-container {
+  padding: 0 10px 10px 10px;
+}

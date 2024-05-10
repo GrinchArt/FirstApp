@@ -1,0 +1,17 @@
+<div class="card-description-modal" *ngIf="visible">
+    <div class="modal-content">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <h2>{{ card.name }}</h2>
+      <p><strong>List:</strong> {{ card.name }}</p>
+      <p><strong>Due date:</strong> {{ card.dueDate | date:'mediumDate' }}</p>
+      <p><strong>Priority:</strong> {{ card.priority }}</p>
+      <h3>Description</h3>
+      <p>{{ card.description }}</p>
+      <h3>Activity</h3>
+      <ul>
+        <li *ngFor="let log of activityLogs">
+          {{ log.timestamp | date:'medium' }} - {{ log.actionName }}: {{ log.details }}
+        </li>
+      </ul>
+    </div>
+  </div>
